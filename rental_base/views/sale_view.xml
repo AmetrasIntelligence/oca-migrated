@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Hide fields inserted by sale_rental module to move them to new location -->
+    <record id="sale_rental" model="ir.ui.view">
+        <field name="name">rental_base.sale_rental</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_rental.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='rental_type']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='sell_rental_id']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='rental_qty']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Hide fields inserted by sale_start_end_dates module to move them to new location -->
+    <record id="sale_start_end_dates" model="ir.ui.view">
+        <field name="name">rental_base.sale_start_end_dates</field>
+        <field name="model">sale.order</field>
+        <field name="priority">110</field>
+        <!--Priority greater than 100-->
+        <field name="inherit_id" ref="sale_start_end_dates.view_order_form" />
+        <field name="arch" type="xml">
+            <!-- Use of position=replace: It is necessary to adjust view design -->
+            <field name="default_start_date" position="replace" />
+            <field name="default_end_date" position="replace" />
+            <field name="validity_date" position="after">
+                <span class="o_form_label font-weight-bold">Service Period</span>
+                <div name="service_period" string="Service Period">
+                    <field name="default_start_date" class="oe_inline" nolabel="1" />
+                    to
+                    <field name="default_end_date" class="oe_inline" nolabel="1" />
+                </div>
+            </field>
+        </field>
+    </record>
+
+    <!-- Hide fields inserted by sale_order_type module to move them to new location -->
+    <record id="sale_order_type" model="ir.ui.view">
+        <field name="name">rental_base.sale_order_type</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_order_type.sot_view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type_id']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+                <attribute name="widget">radio</attribute>
+                <attribute name="options">{'horizontal': true}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">rental_base.view_order_form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <!-- Sale Order -->
+            <!-- Button Header -->
+            <xpath expr="//button[@name='action_confirm']" position="after">
+                <button
+                    name="%(action_update_sale_line_date)d"
+                    string="Update Times"
+                    type="action"
+                    attrs="{'invisible': [('state', 'in', ['draft', 'sent'])]}"
+                />
+            </xpath>
+            <!-- Hide fields inserted by sale module to move them to new location -->
+            <xpath
+                expr="//group[@name='sales_person']//field[@name='client_order_ref']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath
+                expr="//group[@name='sale_info']//field[@name='analytic_account_id']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <!-- Sheet -->
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field
+                    name="type_id"
+                    string="Order Type"
+                    required="1"
+                    widget="radio"
+                    options="{'horizontal': true}"
+                />
+            </xpath>
+            <!--            <xpath expr="//field[@name='partner_shipping_id']" position="after">-->
+            <!--                <separator colspan="2" />-->
+            <!--                <field name="client_order_ref" string="Order Reference" />-->
+            <!--            </xpath>-->
+            <xpath expr="//label[@for='pricelist_id']" position="before">
+                <separator colspan="2" />
+                <field
+                    name="analytic_account_id"
+                    context="{'default_partner_id':partner_invoice_id, 'default_name':name}"
+                    attrs="{'readonly': [('invoice_count','!=',0),('state','=','sale')]}"
+                    groups="analytic.group_analytic_accounting"
+                    force_save="1"
+                />
+            </xpath>
+
+            <!-- Sale Order Lines -->
+            <!-- Hide fields inserted by sale module to move them to new location -->
+            <xpath expr="//field[@name='tax_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//label[@for='customer_lead']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[field[@name='customer_lead']]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//label[@for='qty_invoiced']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': ['|', ('rental', '=', True), ('parent.state', 'not
+                    in', ['sale', 'done'])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//div[field[@name='qty_invoiced']]" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': ['|', ('rental', '=', True), ('parent.state', 'not
+                    in', ['sale', 'done'])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//label[@for='name']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+            <xpath
+                expr="//page[@name='order_lines']//form//field[@name='name']"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {'invisible': [('display_type', '=', False)]}
+                </attribute>
+            </xpath>
+
+            <!-- Group: Order Information -->
+            <xpath expr="//group[field[@name='product_id']]" position="attributes">
+                <attribute name="id">order_info</attribute>
+                <attribute name="string">Order Information</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='product_id']" position="after">
+                <label
+                    for="rental_qty"
+                    string="Rental Quantity"
+                    attrs="{'invisible': [('rental', '=', False)]}"
+                />
+                <div attrs="{'invisible': [('rental', '=', False)]}">
+                    <field
+                        name="rental_qty"
+                        attrs="{'required': [('rental', '=', True)]}"
+                        class="oe_inline"
+                    />
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='discount']" position="after">
+                <separator
+                    id="description"
+                    string="Description"
+                    attrs="{'invisible': [('display_type', '!=', False)]}"
+                    colspan="2"
+                />
+                <field name="name" nolabel="1" colspan="2" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
