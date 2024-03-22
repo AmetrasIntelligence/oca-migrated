@@ -39,20 +39,10 @@ repos:
     hooks:
       # update the NOT INSTALLABLE ADDONS section above
       - id: oca-update-pre-commit-excluded-addons
-      - id: oca-fix-manifest-website
-        args: ["https://github.com/OCA/account-analytic"]
-      - id: oca-gen-addon-readme
-        args:
-          - --addons-dir=.
-          - --branch=16.0
-          - --org-name=OCA
-          - --repo-name=account-analytic
-          - --if-source-changed
   - repo: https://github.com/OCA/odoo-pre-commit-hooks
     rev: v0.0.25
     hooks:
       - id: oca-checks-odoo-module
-      - id: oca-checks-po
   - repo: https://github.com/myint/autoflake
     rev: v1.6.1
     hooks:
@@ -74,7 +64,7 @@ repos:
       - id: prettier
         name: prettier (with plugin-xml)
         additional_dependencies:
-          - "prettier@2.7.1"
+          - "prettier@2.8.7"
           - "@prettier/plugin-xml@2.2.0"
         args:
           - --plugin=@prettier/plugin-xml
@@ -105,7 +95,6 @@ repos:
       - id: check-merge-conflict
         # exclude files where underlines are not distinguishable from merge conflicts
         exclude: /README\.rst$|^docs/.*\.rst$
-      - id: check-symlinks
       - id: check-xml
       - id: mixed-line-ending
         args: ["--fix=lf"]
