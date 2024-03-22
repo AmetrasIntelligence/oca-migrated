@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="test_product" model="product.product">
         <field name="name">Storage Box</field>
         <field name="standard_price">70.0</field>
@@ -40,5 +39,4 @@
         <field name="price">750</field>
         <field name="currency_id" ref="base.USD" />
     </record>
-
 </odoo>

@@ -43,10 +43,8 @@
                     name="operating_unit_id"
                     groups="operating_unit.group_multi_operating_unit"
                 />
-
             </field>
             <filter name="group_by_account" position="after">
-
                 <filter
                     string="Operating Unit"
                     name="operating_unit_grouped"
@@ -54,7 +52,6 @@
                     context="{'group_by':'operating_unit_id'}"
                     groups="operating_unit.group_multi_operating_unit"
                 />
-
             </filter>
         </field>
     </record>
@@ -69,7 +66,6 @@
                     options="{'no_create': True}"
                     groups="operating_unit.group_multi_operating_unit"
                 />
-
             </xpath>
             <field name="invoice_line_ids" position="before">
                 <field name="operating_unit_id" invisible="1" />
@@ -140,7 +136,6 @@
                     optional="show"
                     groups="operating_unit.group_multi_operating_unit"
                 />
-
             </field>
         </field>
     </record>
@@ -154,7 +149,6 @@
                     name="operating_unit_id"
                     groups="operating_unit.group_multi_operating_unit"
                 />
-
             </field>
             <filter name="salesperson" position="after">
                 <filter
