@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_config_settings_view_forms" model="ir.ui.view">
+        <field name="name">res.config.settings.stock.sort</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div id="reception_report" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="extra_box">
+                    <div class="o_setting_left_pane" />
+                    <div class="o_setting_right_pane" />
+                </div>
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    title="Select a default sort criteria for stock picking moves."
+                >
+                    <div class="o_setting_left_pane" />
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="stock_move_order_default"
+                            string='Default Sort Criteria (Operations)'
+                        />
+                        <div class="text-muted">
+                            default sort criteria for stock picking moves
+                        </div>
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label
+                                    string="Line Order 1"
+                                    for="stock_move_order_default"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field
+                                    name="stock_move_order_default"
+                                    options="{'no_create': True}"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Line Order 2"
+                                    for="stock_move_order_2_default"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field
+                                    name="stock_move_order_2_default"
+                                    options="{'no_create': True}"
+                                />
+                            </div>
+                            <div
+                                class="row mt16"
+                                attrs="{'invisible': [('stock_move_order_default', '=', False),('stock_move_order_2_default', '=', False)]}"
+                            >
+                                <label
+                                    string="Direction"
+                                    for="stock_move_direction_default"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field
+                                    name="stock_move_direction_default"
+                                    attrs="{'required': ['|',('stock_move_order_default', '!=', False),('stock_move_order_2_default', '!=', False)]}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    title="Select a default sort criteria for stock picking moves lines."
+                >
+                    <div class="o_setting_left_pane" />
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="stock_move_line_order_default"
+                            string='Default Sort Criteria (Detailed Operations)'
+                        />
+                        <div class="text-muted">
+                            default sort criteria for stock picking moves
+                            lines (detailed operations)
+                        </div>
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label
+                                    string="Line Order 1"
+                                    for="stock_move_line_order_default"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field
+                                    name="stock_move_line_order_default"
+                                    options="{'no_create': True}"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Line Order 2"
+                                    for="stock_move_line_order_2_default"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field
+                                    name="stock_move_line_order_2_default"
+                                    options="{'no_create': True}"
+                                />
+                            </div>
+                            <div
+                                class="row mt16"
+                                attrs="{'invisible': [('stock_move_line_order_default', '=', False),('stock_move_line_order_2_default','=',False)]}"
+                            >
+                                <label
+                                    string="Direction"
+                                    for="stock_move_line_direction_default"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field
+                                    name="stock_move_line_direction_default"
+                                    attrs="{'required': ['|',('stock_move_line_order_default', '!=', False),('stock_move_line_order_2_default','!=',False)]}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
