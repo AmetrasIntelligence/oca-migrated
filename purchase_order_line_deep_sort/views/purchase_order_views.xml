@@ -5,18 +5,21 @@
         <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page string="Other Info">
+                <page string="Sorting">
                     <group name="line_order">
                         <label for="line_order" />
                         <div>
-                            <field name="line_order" class="oe_inline" />
-                            (
+                            <b>Parameter 1:</b>
+                            <field name="line_order" options="{'no_create': True}" />
+                            <br />
+                            <b>Parameter 2:</b>
+                            <field name="line_order_2" options="{'no_create': True}" />
+                            <br />
+                            <b>Order:</b>
                             <field
                                 name="line_direction"
-                                class="oe_inline"
-                                attrs="{'required': [('line_order', '!=', False)]}"
+                                attrs="{'required': ['|', ('line_order', '!=', False), ('line_order_2', '!=', False)]}"
                             />
-                            )
                         </div>
                     </group>
                 </page>
