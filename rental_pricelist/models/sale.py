@@ -247,8 +247,8 @@ class SaleOrderLine(models.Model):
             uom_ids.append(time_uoms["hour"].id)
         return uom_ids
 
-    @api.depends("product_id", "product_uom", "product_uom_qty")
-    def _compute_pricelist_item_id(self):
+    @api.onchange("product_id")
+    def _onchange_product_id_warning(self):
         if self.display_product_id and self.product_uom and self.rental:
             if self.product_uom.id != self.product_id.uom_id.id:
                 time_uoms = self._get_time_uom()
@@ -258,7 +258,7 @@ class SaleOrderLine(models.Model):
                             key
                         )
                         break
-        res = super(SaleOrderLine, self)._compute_pricelist_item_id()
+        res = super(SaleOrderLine, self)._onchange_product_id_warning()
         if self.rental:
             if self.display_product_id.rental:
                 if res and "domain" not in res:
