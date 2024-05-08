@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import {registry} from "@web/core/registry";
+registry.category("action_handlers").remove("ir.actions.close_wizard_refresh_view");
 
 async function executeCloseAndRefreshView({env}) {
     const actionService = env.services.action;
