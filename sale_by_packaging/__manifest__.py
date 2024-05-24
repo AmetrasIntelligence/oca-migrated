@@ -1,7 +1,7 @@
 {
     "name": "Sale By Packaging",
     "summary": "Manage sale of packaging",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "development_status": "Alpha",
     "category": "Warehouse Management",
     "website": "https://github.com/OCA/sale-workflow",
@@ -13,5 +13,6 @@
     "data": [
         "views/product_packaging.xml",
         "views/sale_order_line.xml",
+        "views/product_template.xml",
     ],
 }
