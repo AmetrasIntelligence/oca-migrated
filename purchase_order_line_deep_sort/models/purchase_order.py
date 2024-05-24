@@ -3,31 +3,18 @@
 # Copyright 2019 Tecnativa - Sergio Teruel
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3
 
-import logging
-
 from odoo import api, fields, models
 
-from .res_company import SORTING_DIRECTION
-
-_logger = logging.getLogger(__name__)
-
-string_types = ["char", "text", "date", "datetime", "selection"]
+from .res_company import SORTING_CRITERIA, SORTING_DIRECTION
 
 
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    line_order = fields.Many2one(
-        comodel_name="ir.model.fields",
+    line_order = fields.Selection(
+        selection=SORTING_CRITERIA,
         string="Sort Lines By",
-        domain="[('model', '=', 'purchase.order.line')]",
         default=lambda self: self.env.user.company_id.default_po_line_order,
-    )
-    line_order_2 = fields.Many2one(
-        comodel_name="ir.model.fields",
-        string="Sort Lines By",
-        domain="[('model', '=', 'purchase.order.line')]",
-        default=lambda self: self.env.user.company_id.default_po_line_order_2,
     )
     line_direction = fields.Selection(
         selection=SORTING_DIRECTION,
@@ -35,78 +22,59 @@ class PurchaseOrder(models.Model):
         default=lambda self: self.env.user.company_id.default_po_line_direction,
     )
 
-    @api.onchange("line_order", "line_order_2")
+    @api.onchange("line_order")
     def onchange_line_order(self):
-        if not self.line_order and not self.line_order_2:
+        if not self.line_order:
             self.line_direction = False
 
     def _sort_purchase_line(self):
         def resolve_subfields(obj, line_order):
-            if not line_order:
-                return None
-            val = getattr(obj, line_order.name)
-            # Odoo object
-            if isinstance(val, models.BaseModel):
-                if not val:
-                    val = ""
-                elif hasattr(val[0], "name"):
-                    val = ",".join(val.mapped("name"))
+            subfields = line_order.split(".")
+            res = obj
+            str_fields = ("text", "varchar", "timestamp", "date")
+            for subfield in subfields:
+                if res._fields[subfield].column_type[0] in str_fields:
+                    res = getattr(res, subfield) or ""
                 else:
-                    val = ",".join([str(id) for id in val.mapped("id")])
-            elif line_order.ttype in string_types:
-                if not val:
-                    val = ""
-                elif not isinstance(val, str):
-                    try:
-                        val = str(val)
-                    except Exception:
-                        val = ""
-            return val
+                    res = getattr(res, subfield)
+            return res
 
-        if (
-            not self.line_order and not self.line_order_2 and not self.line_direction
-        ) or self.order_line.filtered(
-            lambda p: p.display_type in ["line_section", "line_note"]
-        ):
+        if not self.line_order and not self.line_direction:
             return
         reverse = self.line_direction == "desc"
         sequence = 0
-        try:
-            sorted_lines = self.order_line.sorted(
-                key=lambda p: (
-                    p.display_type is False,
-                    resolve_subfields(p, self.line_order),
-                    resolve_subfields(p, self.line_order_2),
-                ),
-                reverse=reverse,
-            )
-            for line in sorted_lines:
-                sequence += 10
-                if line.sequence == sequence:
-                    continue
-                line.sequence = sequence
-        except Exception:
-            _logger.warning("Could not sort purchase order!", exc_info=True)
+        sorted_lines = self.order_line.sorted(
+            key=lambda p: resolve_subfields(p, self.line_order),
+            reverse=reverse,
+        )
+        for line in sorted_lines:
+            sequence += 10
+            if line.sequence == sequence:
+                continue
+            line.sequence = sequence
 
     def write(self, values):
         res = super().write(values)
         if (
             "order_line" in values
             or "line_order" in values
-            or "line_order_2" in values
             or "line_direction" in values
         ):
-            for record in self:
-                record._sort_purchase_line()
+            self._sort_purchase_line()
         return res
+
+    @api.model
+    def create(self, values):
+        purchase = super().create(values)
+        purchase._sort_purchase_line()
+        return purchase
 
 
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        lines = super().create(vals_list)
-        for order_id in lines.mapped("order_id"):
-            order_id._sort_purchase_line()
-        return lines
+    @api.model
+    def create(self, vals):
+        line = super().create(vals)
+        line.order_id._sort_purchase_line()
+        return line
