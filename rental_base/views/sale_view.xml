@@ -123,14 +123,19 @@
 
             <xpath expr="//label[@for='qty_invoiced']" position="attributes">
                 <attribute name="attrs">
-                    {'invisible': ['|', ('rental', '=', True), ('parent.state', 'not
-                    in', ['sale', 'done'])]}
+                    {'invisible': [
+                    '|',
+                    ('rental', '=', True),
+                    ('parent.state', 'not in', ['sale', 'done'])
+                    ]}
                 </attribute>
             </xpath>
             <xpath expr="//div[field[@name='qty_invoiced']]" position="attributes">
                 <attribute name="attrs">
-                    {'invisible': ['|', ('rental', '=', True), ('parent.state', 'not
-                    in', ['sale', 'done'])]}
+                    {'invisible': [
+                    '|', ('rental', '=', True),
+                    ('parent.state', 'not in', ['sale', 'done'])
+                    ]}
                 </attribute>
             </xpath>
             <xpath expr="//label[@for='name']" position="attributes">
