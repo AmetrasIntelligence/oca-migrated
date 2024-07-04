@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.purchase.sort</field>
+        <field name="model">res.config.settings</field>
+        <field
+                name="inherit_id"
+                ref="purchase_order_line_deep_sort.res_config_settings_view_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='po_line_order_default']" position="attributes">
+                <attribute name="options">{'no_create': True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='po_line_order_default']/parent::div//label" position="attributes">
+                <attribute name="string">Line Order 1</attribute>
+            </xpath>
+            <xpath expr="//label[@for='po_line_direction_default']/parent::div" position="before">
+                <div class="row mt16">
+                    <label
+                            string="Line Order 2"
+                            for="po_line_order_2_default"
+                            class="col-lg-3 o_light_label"
+                    />
+                    <field
+                            name="po_line_order_2_default"
+                            options="{'no_create': True}"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
