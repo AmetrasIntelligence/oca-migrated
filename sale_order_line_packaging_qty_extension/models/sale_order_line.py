@@ -15,9 +15,9 @@ class SaleOrderLine(models.Model):
     def _compute_product_packaging_qty(self):
         for sol in self:
             if (
-                    not sol.product_packaging_id
-                    or sol.product_uom_qty == 0
-                    or sol.product_packaging_id.qty == 0
+                not sol.product_packaging_id
+                or sol.product_uom_qty == 0
+                or sol.product_packaging_id.qty == 0
             ):
                 sol.product_packaging_qty = 0
                 continue

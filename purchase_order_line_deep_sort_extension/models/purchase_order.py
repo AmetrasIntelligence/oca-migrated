@@ -6,7 +6,10 @@
 import logging
 
 from odoo import api, fields, models
-from odoo.addons.purchase_order_line_deep_sort.models.purchase_order import PurchaseOrder as Purchase
+
+from odoo.addons.purchase_order_line_deep_sort.models.purchase_order import (
+    PurchaseOrder as Purchase,
+)
 
 _logger = logging.getLogger(__name__)
 
@@ -58,7 +61,7 @@ class PurchaseOrder(models.Model):
             return val
 
         if (
-                not self.line_order and not self.line_order_2 and not self.line_direction
+            not self.line_order and not self.line_order_2 and not self.line_direction
         ) or self.order_line.filtered(lambda p: p.display_type == "line_section"):
             return
         reverse = self.line_direction == "desc"

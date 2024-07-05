@@ -132,9 +132,9 @@
                         <group name="scan_fields" class="bg-light">
                             <group name="location">
                                 <div class="mt4">
-                                    <strong
-                                        class=" d-none d-sm-block"
-                                    >Source Location</strong>
+                                    <strong class=" d-none d-sm-block">
+                                        Source Location
+                                    </strong>
                                     <span
                                         class="fa fa-map-marker d-sm-none oe_span_small_icon"
                                         title="Source Location"
@@ -331,20 +331,27 @@
                                         <div
                                             attrs="{'invisible': [('total_product_uom_qty', '=', 0.0)]}"
                                         >
-                                            <span>(<field
+                                            <span>
+                                                (
+                                                <field
                                                     name="total_product_qty_done"
                                                     class="oe_inline"
                                                     readonly="1"
-                                                /> / <field
+                                                />
+                                                /
+                                                <field
                                                     name="total_product_uom_qty"
                                                     class="oe_inline"
                                                     readonly="1"
-                                                />) <field
+                                                />
+                                                )
+                                                <field
                                                     name="product_uom_id"
                                                     class="oe_inline"
                                                     options="{'no_open': True}"
                                                     readonly="1"
-                                                /></span>
+                                                />
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -375,7 +382,7 @@
                                 aria-expanded="false"
                                 title="Options"
                             >
-                              <i class="fa fa-cogs" />
+                                <i class="fa fa-cogs" />
                             </a>
                             <div
                                 class="d-lg-flex-no-dropdown ps-2 dropdown-menu"
@@ -388,9 +395,7 @@
                                         widget="barcode_boolean_toggle"
                                         data-hotkey="5"
                                     />
-                                    <label for="manual_entry">
-                                        Edit
-                                    </label>
+                                    <label for="manual_entry">Edit</label>
                                 </div>
                             </div>
                         </div>
@@ -417,8 +422,7 @@
                             class="btn-warning ms-auto oe_kanban_action_button btn-sm ps-3 pe-3"
                             attrs="{'invisible': [('display_menu', '=', True)]}"
                             data-hotkey="7"
-                        >
-                        </button>
+                        />
                         <button
                             name="action_confirm"
                             type="object"

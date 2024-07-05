@@ -11,7 +11,8 @@
                 <attribute name="groups" add="product.group_stock_packaging" />
             </field>
             <field name="packaging_ids" position="attributes">
-                <attribute name="context">{
+                <attribute name="context">
+                    {
                     'get_uom_categ_from_uom': uom_id,
                     'tree_view_ref': 'product.product_packaging_tree_view2',
                     'form_view_ref': 'product.product_packaging_form_view2'}

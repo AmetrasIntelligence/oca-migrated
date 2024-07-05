@@ -2,7 +2,6 @@
 <!-- Copyright 2017-2019 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <!--TREE view-->
     <record model="ir.ui.view" id="res_partner_bank_tree_view">
         <field name="name">res.partner.bank.tree (in partner_bank_active)</field>

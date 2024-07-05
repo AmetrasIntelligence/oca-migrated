@@ -5,9 +5,9 @@
             expr="//tr[@class='o_data_row']/t[@t-foreach='getColumns(record)']/t[@t-if=&quot;column.type === 'field'&quot;]/td"
             position="attributes"
         >
-                <attribute
-                name="t-att-style"
-            >getCellStyleColored(column, record)</attribute>
+            <attribute name="t-att-style">
+                getCellStyleColored(column, record)
+            </attribute>
         </xpath>
     </t>
 </templates>
