@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<template>
+    <t t-name="TimelineView">
+        <div class="oe_timeline_view">
+            <div class="btn-group btn-sm">
+                <button
+                    class="btn btn-secondary put_space_right oe_timeline_button_today"
+                >
+                    Today
+                </button>
+                <button class="btn btn-secondary oe_timeline_button_scale_day">
+                    Day
+                </button>
+                <button class="btn btn-secondary oe_timeline_button_scale_week">
+                    Week
+                </button>
+                <button class="btn btn-secondary oe_timeline_button_scale_month">
+                    Month
+                </button>
+                <button
+                    class="btn btn-secondary put_space_right oe_timeline_button_scale_year"
+                >
+                    Year
+                </button>
+                <input type="text" class="o_input put_space_right oe_timeline_range" />
+                <button
+                    class="fa fa-chevron-left btn btn-secondary oe_timeline_button_previous"
+                />
+                <button
+                    class="fa fa-chevron-right btn btn-secondary put_space_right oe_timeline_button_next"
+                />
+            </div>
+            <div class="oe_timeline_widget" />
+        </div>
+    </t>
+</template>
