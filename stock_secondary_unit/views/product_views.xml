@@ -32,6 +32,7 @@
                     class="oe_stat_button"
                     icon="fa-building-o"
                     groups="stock.group_stock_user"
+                    string="On Hand (2Unit)"
                 >
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_value">
@@ -43,6 +44,7 @@
                         </span>
                         <span class="o_stat_text">
                             <field name="stock_secondary_uom_id" readonly="1" />
+                            <span class="o_stat_text">On Hand (2Unit)</span>
                         </span>
                     </div>
                 </button>
@@ -61,6 +63,7 @@
                     class="oe_stat_button"
                     icon="fa-building-o"
                     groups="stock.group_stock_user"
+                    string="On Hand (2Unit)"
                 >
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_value">
@@ -71,7 +74,8 @@
                             />
                         </span>
                         <span class="o_stat_text">
-                            <field name="stock_secondary_uom_id" />
+                            <field name="stock_secondary_uom_id" readonly="1" />
+                            <span class="o_stat_text">On Hand (2Unit)</span>
                         </span>
                     </div>
                 </button>
