@@ -14,30 +14,9 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/sale_operating_unit/i18n/sale_operating_unit.pot\n"
 "X-Crowdin-File-ID: 21330\n"
 "Language: fr_FR\n"
-"PO-Revision-Date: 2024-09-23 13:41\n"
+"PO-Revision-Date: 2024-09-25 12:07\n"
 
 #. module: sale_operating_unit
-#: code:addons/sale_operating_unit/models/crm_team.py:0
-#, python-format
-msgid "Configuration error. It is not possible to change this team. There are sale orders referencing it in other operating units"
-msgstr ""
-
-#. module: sale_operating_unit
-#: code:addons/sale_operating_unit/models/sale_order.py:0
-#, python-format
-msgid "Configuration error. The Company in the Sales Order and in the Operating Unit must be the same."
-msgstr ""
-
-#. module: sale_operating_unit
-#: code:addons/sale_operating_unit/models/sale_order.py:0
-#, python-format
-msgid "Configuration error. The Operating Unit of the sales team must match with that of the quote/sales order."
-msgstr ""
-
-#. module: sale_operating_unit
-#: model:ir.model.fields,field_description:sale_operating_unit.field_sale_order__operating_unit_id
-#: model:ir.model.fields,field_description:sale_operating_unit.field_sale_order_line__operating_unit_id
-#: model:ir.model.fields,field_description:sale_operating_unit.field_sale_report__operating_unit_id
 #: model_terms:ir.ui.view,arch_db:sale_operating_unit.view_sale_report_search
 #: model_terms:ir.ui.view,arch_db:sale_operating_unit.view_sales_order_filter
 msgid "Operating Unit"
