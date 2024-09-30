@@ -3,13 +3,16 @@
 {
     "name": "Stock Picking Product Barcode Report Secondary Unit",
     "summary": "Set by default the maximum quantity of labels to print.",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/stock-logistics-barcode",
     "license": "AGPL-3",
     "maintainers": ["CarlosRoca13"],
     "category": "Extra Tools",
-    "depends": ["stock_picking_product_barcode_report", "stock_secondary_unit"],
+    "depends": [
+        "ametras_stock_picking_product_barcode_report_extension",
+        "stock_secondary_unit",
+    ],
     "external_dependencies": {"python": ["python-barcode"]},
     "installable": True,
 }
