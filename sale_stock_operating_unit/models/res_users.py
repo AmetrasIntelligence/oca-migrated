@@ -11,7 +11,7 @@ class ResUsers(models.Model):
         warehouse = self.env["stock.warehouse"].search(
             [
                 ("company_id", "=", self.env.company.id),
-                ("operating_unit_id", "=", self.team_id.operating_unit_id.id),
+                ("operating_unit_id", "=", self.env.user.default_operating_unit_id.id),
             ],
             limit=1,
         )
