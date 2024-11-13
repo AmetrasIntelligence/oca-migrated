@@ -261,7 +261,9 @@ class SaleOrderLine(models.Model):
         res = super(SaleOrderLine, self)._onchange_product_id_warning()
         if self.rental:
             if self.display_product_id.rental:
-                if res and "domain" not in res:
+                if not res:
+                    res = {}
+                if "domain" not in res:
                     res["domain"] = {}
                 uom_ids = self._get_product_rental_uom_ids()
                 res["domain"]["product_uom"] = [("id", "in", uom_ids)]
