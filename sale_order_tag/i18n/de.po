@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/sale_order_tag/i18n/sale_order_tag.pot\n"
 "X-Crowdin-File-ID: 21414\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-26 09:56\n"
+"PO-Revision-Date: 2024-11-27 14:32\n"
 
 #. module: sale_order_tag
 #: model_terms:ir.ui.view,arch_db:sale_order_tag.sale_order_tag_form_view
@@ -24,7 +24,7 @@ msgstr ""
 #. module: sale_order_tag
 #: model:ir.model,name:sale_order_tag.model_sale_order_tag
 msgid "Sale Order Tag"
-msgstr ""
+msgstr "Suchbegriff zum Verkaufsauftrag"
 
 #. module: sale_order_tag
 #: model:ir.actions.act_window,name:sale_order_tag.sale_order_tag_action
@@ -36,15 +36,15 @@ msgstr "Stichwörter Verkaufsauftrag"
 #. module: sale_order_tag
 #: model:ir.model,name:sale_order_tag.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Verkaufsauftrag"
 
 #. module: sale_order_tag
 #: model:ir.model.constraint,message:sale_order_tag.constraint_sale_order_tag_name_uniq
 msgid "Tag name already exists!"
-msgstr ""
+msgstr "Stichwort existiert bereits!"
 
 #. module: sale_order_tag
 #: model_terms:ir.ui.view,arch_db:sale_order_tag.sale_order_tag_view_form
 msgid "tag..."
-msgstr ""
+msgstr "Stichwort..."
 
