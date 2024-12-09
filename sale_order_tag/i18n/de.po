@@ -14,17 +14,17 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/sale_order_tag/i18n/sale_order_tag.pot\n"
 "X-Crowdin-File-ID: 21414\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-11-27 14:32\n"
+"PO-Revision-Date: 2024-12-09 09:58\n"
 
 #. module: sale_order_tag
 #: model_terms:ir.ui.view,arch_db:sale_order_tag.sale_order_tag_form_view
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #. module: sale_order_tag
 #: model:ir.model,name:sale_order_tag.model_sale_order_tag
 msgid "Sale Order Tag"
-msgstr "Suchbegriff zum Verkaufsauftrag"
+msgstr "Stichwort Verkaufsauftrag"
 
 #. module: sale_order_tag
 #: model:ir.actions.act_window,name:sale_order_tag.sale_order_tag_action
