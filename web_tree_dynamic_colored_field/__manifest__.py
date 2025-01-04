@@ -2,7 +2,7 @@
     "name": "Ametras Colorize field in tree views",
     "summary": "Allows you to dynamically color fields on tree views",
     "category": "Hidden/Dependency",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "author": "Ametras intelligence GmbH",
     "website": "https://www.ametras.com",
     "depends": ["web"],
