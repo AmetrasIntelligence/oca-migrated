@@ -17,11 +17,14 @@ class ProductPricelistItem(models.Model):
 
     def _compute_price(self, product, quantity, uom, date, currency=None):
         result = super()._compute_price(product, quantity, uom, date, currency)
-        is_reprice = self.env.context.get("is_reprice", False)
-        if (
-            self.compute_price == "formula"
-            and self.base == "multi_price"
-            and not is_reprice
-        ):
+        if self.compute_price == "formula" and self.base == "multi_price":
+            result = product.sudo()._get_multiprice_pricelist_price(self)
+        return result
+
+    def _compute_base_price(self, product, quantity, uom, date, target_currency):
+        result = super()._compute_base_price(
+            product, quantity, uom, date, target_currency
+        )
+        if self.compute_price == "formula" and self.base == "multi_price":
             result = product.sudo()._get_multiprice_pricelist_price(self)
         return result
