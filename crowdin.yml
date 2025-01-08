@@ -1,5 +1,5 @@
 pull_request_title: "[CI] i18n Update"
-commit_message: "[CI SKIP] Update i18n: (%language%) %original_file_name%"
+commit_message: "[I18N] Update i18n: (%language%) %original_file_name%"
 append_commit_message: false
 files:
   - source: /**/i18n/*.pot
