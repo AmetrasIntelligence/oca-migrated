@@ -134,3 +134,12 @@ repos:
         name: pylint
         args:
           - --rcfile=.pylintrc-mandatory
+  - repo: https://github.com/acsone/setuptools-odoo
+    rev: "3.3"
+    hooks:
+      - id: setuptools-odoo-get-requirements
+        args:
+          - --output
+          - requirements.txt
+          - --header
+          - "# generated from manifests external_dependencies"
