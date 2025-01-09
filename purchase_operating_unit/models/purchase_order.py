@@ -3,11 +3,26 @@
 # Copyright 2015-17 Serpent Consulting Services Pvt. Ltd. - Sudhir Arya
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
 
 
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
+
+    @api.model
+    def _default_picking_type(self):
+        res = super(PurchaseOrder, self)._default_picking_type()
+        type_obj = self.env["stock.picking.type"]
+        operating_unit = self.env["res.users"].operating_unit_default_get(self.env.uid)
+        types = type_obj.search(
+            [
+                ("code", "=", "incoming"),
+                ("warehouse_id.operating_unit_id", "=", operating_unit.id),
+            ]
+        )
+        if types:
+            res = types[:1].id
+        return res
 
     READONLY_STATES = {
         "purchase": [("readonly", True)],
@@ -45,6 +60,26 @@ class PurchaseOrder(models.Model):
                     _(
                         "Configuration error. The Company in the Purchase Order "
                         "and in the Operating Unit must be the same."
+                    )
+                )
+
+    @api.onchange("operating_unit_id")
+    def _onchange_operating_unit_id(self):
+        type_obj = self.env["stock.picking.type"]
+        if self.operating_unit_id:
+            types = type_obj.search(
+                [
+                    ("code", "=", "incoming"),
+                    ("warehouse_id.operating_unit_id", "=", self.operating_unit_id.id),
+                ]
+            )
+            if types:
+                self.picking_type_id = types[:1]
+            else:
+                raise UserError(
+                    _(
+                        "No Warehouse found with the Operating Unit indicated "
+                        "in the Purchase Order"
                     )
                 )
 
