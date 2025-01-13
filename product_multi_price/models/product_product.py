@@ -16,11 +16,9 @@ class ProductProduct(models.Model):
         price_uom = self.env["uom.uom"].browse([qty_uom_id])
         return self.uom_id._compute_price(price, price_uom)
 
-    def _get_multiprice_pricelist_price(self, rule):
-        """Method for getting the price from multi price."""
-        self.ensure_one()
+    def _get_multiprice_pricelist_base_price(self, rule):
         company = rule.company_id or self.env.user.company_id
-        price = (
+        return (
             self.env["product.multi.price"]
             .sudo()
             .search(
@@ -33,6 +31,11 @@ class ProductProduct(models.Model):
             .price
             or 0
         )
+
+    def _get_multiprice_pricelist_price(self, rule):
+        """Method for getting the price from multi price."""
+        self.ensure_one()
+        price = self._get_multiprice_pricelist_base_price(rule)
         if price:
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.

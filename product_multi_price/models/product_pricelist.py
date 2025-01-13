@@ -26,5 +26,5 @@ class ProductPricelistItem(models.Model):
             product, quantity, uom, date, target_currency
         )
         if self.compute_price == "formula" and self.base == "multi_price":
-            result = product.sudo()._get_multiprice_pricelist_price(self)
+            result = product.sudo()._get_multiprice_pricelist_base_price(self)
         return result
