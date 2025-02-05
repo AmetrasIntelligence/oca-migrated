@@ -219,8 +219,9 @@ class SaleOrderLine(models.Model):
 
     @api.depends("product_id", "product_uom", "product_uom_qty")
     def _compute_pricelist_item_id(self):
-        if self.product_uom:
-            time_uoms = self._get_time_uom()
-            if self.product_uom.id != time_uoms["day"].id:
-                self.fixed_offday_type = "none"
+        for rec in self:
+            if rec.product_uom:
+                time_uoms = rec._get_time_uom()
+                if rec.product_uom.id != time_uoms["day"].id:
+                    rec.fixed_offday_type = "none"
         return super(SaleOrderLine, self)._compute_pricelist_item_id()
