@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/pim/i18n/pim.pot\n"
 "X-Crowdin-File-ID: 21342\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:07\n"
+"PO-Revision-Date: 2025-02-07 14:28\n"
 
 #. module: pim
 #: model:res.groups,comment:pim.group_pim_manager
@@ -47,17 +47,17 @@ msgstr ""
 #. module: pim
 #: model:ir.ui.menu,name:pim.main_menu_attribute
 msgid "Attributes"
-msgstr ""
+msgstr "Attribute"
 
 #. module: pim
 #: model:ir.ui.menu,name:pim.menu_variant_attribute_value
 msgid "Attributes Values"
-msgstr ""
+msgstr "Attributswerte"
 
 #. module: pim
 #: model:ir.ui.menu,name:pim.main_menu_category
 msgid "Categories"
-msgstr ""
+msgstr "Kategorien"
 
 #. module: pim
 #: model:ir.module.category,description:pim.module_category_pim
@@ -67,13 +67,13 @@ msgstr ""
 #. module: pim
 #: model:res.groups,name:pim.group_pim_manager
 msgid "Manager"
-msgstr ""
+msgstr "Manager"
 
 #. module: pim
 #: model:ir.module.category,name:pim.module_category_pim
 #: model:ir.ui.menu,name:pim.root_menu_pim
 msgid "PIM"
-msgstr ""
+msgstr "PIM"
 
 #. module: pim
 #: model:ir.actions.act_window,name:pim.attribute_attribute_form_action
@@ -95,14 +95,14 @@ msgstr ""
 #. module: pim
 #: model:ir.ui.menu,name:pim.menu_product_product
 msgid "Product Variants"
-msgstr ""
+msgstr "Produktvariante"
 
 #. module: pim
 #: model:ir.actions.act_window,name:pim.product_template_action
 #: model:ir.ui.menu,name:pim.main_menu_product
 #: model:ir.ui.menu,name:pim.menu_product_template
 msgid "Products"
-msgstr ""
+msgstr "Produkte"
 
 #. module: pim
 #: model:res.groups,name:pim.group_pim_reader
