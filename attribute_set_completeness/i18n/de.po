@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/attribute_set_completeness/i18n/attribute_set_completeness.pot\n"
 "X-Crowdin-File-ID: 21354\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:08\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: attribute_set_completeness
 #: model:ir.model,name:attribute_set_completeness.model_attribute_set
@@ -34,17 +34,17 @@ msgstr ""
 #. module: attribute_set_completeness
 #: model_terms:ir.ui.view,arch_db:attribute_set_completeness.attribute_set_form_view
 msgid "COMPLETNESS"
-msgstr ""
+msgstr "KOMPLETIERUNG"
 
 #. module: attribute_set_completeness
 #: model:ir.model.fields.selection,name:attribute_set_completeness.selection__attribute_set_owner_mixin__attribute_set_completion_state__complete
 #: model:ir.model.fields.selection,name:attribute_set_completeness.selection__product_product__attribute_set_completion_state__complete
 #: model:ir.model.fields.selection,name:attribute_set_completeness.selection__product_template__attribute_set_completion_state__complete
 msgid "Complete"
-msgstr ""
+msgstr "Vollständig"
 
 #. module: attribute_set_completeness
 #: model_terms:ir.ui.view,arch_db:attribute_set_completeness.attribute_set_completeness_tree_view
 msgid "Total"
-msgstr ""
+msgstr "Gesamt"
 
