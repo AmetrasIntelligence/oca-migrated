@@ -14,12 +14,12 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/attribute_set_searchable/i18n/attribute_set_searchable.pot\n"
 "X-Crowdin-File-ID: 21366\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:08\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: attribute_set_searchable
 #: model:ir.model,name:attribute_set_searchable.model_attribute_attribute
 msgid "Attribute"
-msgstr ""
+msgstr "Attribut"
 
 #. module: attribute_set_searchable
 #: model:ir.model,name:attribute_set_searchable.model_ir_ui_custom_field_filter
