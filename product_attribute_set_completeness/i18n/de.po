@@ -14,20 +14,20 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/product_attribute_set_completeness/i18n/product_attribute_set_completeness.pot\n"
 "X-Crowdin-File-ID: 21384\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:08\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: product_attribute_set_completeness
 #: model_terms:ir.ui.view,arch_db:product_attribute_set_completeness.product_template_search_view
 msgid "Complete"
-msgstr ""
+msgstr "Vollständig"
 
 #. module: product_attribute_set_completeness
 #: model_terms:ir.ui.view,arch_db:product_attribute_set_completeness.product_template_search_view
 msgid "Not Complete"
-msgstr ""
+msgstr "Nicht Vollständig"
 
 #. module: product_attribute_set_completeness
 #: model_terms:ir.ui.view,arch_db:product_attribute_set_completeness.product_template_view_form
 msgid "Not completed attributes"
-msgstr ""
+msgstr "Nicht vollständige Eigenschaften"
 
