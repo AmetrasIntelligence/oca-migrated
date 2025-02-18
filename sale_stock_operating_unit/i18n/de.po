@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/sale_stock_operating_unit/i18n/sale_stock_operating_unit.pot\n"
 "X-Crowdin-File-ID: 21420\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-12-09 09:58\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: sale_stock_operating_unit
 #: model:ir.model,name:sale_stock_operating_unit.model_sale_order
@@ -24,15 +24,15 @@ msgstr "Verkaufsauftrag"
 #. module: sale_stock_operating_unit
 #: model:ir.model,name:sale_stock_operating_unit.model_stock_move
 msgid "Stock Move"
-msgstr ""
+msgstr "Lagerbewegung"
 
 #. module: sale_stock_operating_unit
 #: model:ir.model,name:sale_stock_operating_unit.model_res_users
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 #. module: sale_stock_operating_unit
 #: model:ir.model,name:sale_stock_operating_unit.model_stock_warehouse
 msgid "Warehouse"
-msgstr ""
+msgstr "Lager"
 
