@@ -14,51 +14,51 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/storage_backend_ftp/i18n/storage_backend_ftp.pot\n"
 "X-Crowdin-File-ID: 21438\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:08\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: storage_backend_ftp
 #: model:ir.model.fields.selection,name:storage_backend_ftp.selection__storage_backend__ftp_encryption__ftp
 #: model_terms:ir.ui.view,arch_db:storage_backend_ftp.storage_backend_view_form
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #. module: storage_backend_ftp
 #: model:ir.model.fields.selection,name:storage_backend_ftp.selection__storage_backend__ftp_encryption__tls
 msgid "Implicit FTP over TLS"
-msgstr ""
+msgstr "Implizites FTP über TLS"
 
 #. module: storage_backend_ftp
 #: model:ir.model.fields.selection,name:storage_backend_ftp.selection__storage_backend__ftp_security__none
 msgid "None"
-msgstr ""
+msgstr "Ohne"
 
 #. module: storage_backend_ftp
 #: model:ir.model.fields.selection,name:storage_backend_ftp.selection__storage_backend__ftp_security__sslv2
 msgid "SSLv2"
-msgstr ""
+msgstr "SSLv2"
 
 #. module: storage_backend_ftp
 #: model:ir.model.fields.selection,name:storage_backend_ftp.selection__storage_backend__ftp_security__sslv23
 msgid "SSLv23"
-msgstr ""
+msgstr "SSLv23"
 
 #. module: storage_backend_ftp
 #: model:ir.model.fields.selection,name:storage_backend_ftp.selection__storage_backend__ftp_security__sslv3
 msgid "SSLv3"
-msgstr ""
+msgstr "SSLv3"
 
 #. module: storage_backend_ftp
 #: model:ir.model,name:storage_backend_ftp.model_storage_backend
 msgid "Storage Backend"
-msgstr ""
+msgstr "Ablage-Backend"
 
 #. module: storage_backend_ftp
 #: model:ir.model.fields.selection,name:storage_backend_ftp.selection__storage_backend__ftp_security__tlsv1
 msgid "TLS"
-msgstr ""
+msgstr "TLS"
 
 #. module: storage_backend_ftp
 #: model:ir.model.fields.selection,name:storage_backend_ftp.selection__storage_backend__ftp_security__tlsv1_1
 msgid "TLSv1_1"
-msgstr ""
+msgstr "TLSv1_1"
 
