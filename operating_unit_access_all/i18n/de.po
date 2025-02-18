@@ -14,10 +14,10 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/operating_unit_access_all/i18n/operating_unit_access_all.pot\n"
 "X-Crowdin-File-ID: 21372\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:08\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: operating_unit_access_all
 #: model:res.groups,name:operating_unit_access_all.group_all_operating_unit
 msgid "Access all Operating Units"
-msgstr ""
+msgstr "Zugriff auf alle Filialen"
 
