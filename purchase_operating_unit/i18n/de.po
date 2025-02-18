@@ -14,31 +14,31 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/purchase_operating_unit/i18n/purchase_operating_unit.pot\n"
 "X-Crowdin-File-ID: 21396\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:08\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: purchase_operating_unit
 #: model:ir.model,name:purchase_operating_unit.model_account_move
 msgid "Journal Entry"
-msgstr ""
+msgstr "Journalbuchung"
 
 #. module: purchase_operating_unit
 #: model:ir.model,name:purchase_operating_unit.model_account_move_line
 msgid "Journal Item"
-msgstr ""
+msgstr "Journaleintrag"
 
 #. module: purchase_operating_unit
 #: model_terms:ir.ui.view,arch_db:purchase_operating_unit.purchase_order_line_search
 #: model_terms:ir.ui.view,arch_db:purchase_operating_unit.view_purchase_order_filter
 msgid "Operating Unit"
-msgstr ""
+msgstr "Filiale"
 
 #. module: purchase_operating_unit
 #: model:ir.model,name:purchase_operating_unit.model_purchase_order
 msgid "Purchase Order"
-msgstr ""
+msgstr "Beschaffungsauftrag"
 
 #. module: purchase_operating_unit
 #: model:ir.model,name:purchase_operating_unit.model_purchase_order_line
 msgid "Purchase Order Line"
-msgstr ""
+msgstr "Bestellposition"
 
