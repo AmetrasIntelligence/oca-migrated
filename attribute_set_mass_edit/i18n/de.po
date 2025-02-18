@@ -14,30 +14,30 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/attribute_set_mass_edit/i18n/attribute_set_mass_edit.pot\n"
 "X-Crowdin-File-ID: 21360\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:08\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: attribute_set_mass_edit
 #: model:ir.model,name:attribute_set_mass_edit.model_attribute_attribute
 msgid "Attribute"
-msgstr ""
+msgstr "Attribut"
 
 #. module: attribute_set_mass_edit
 #: model:ir.model,name:attribute_set_mass_edit.model_attribute_group
 msgid "Attribute Group"
-msgstr ""
+msgstr "Attributsgruppe"
 
 #. module: attribute_set_mass_edit
 #: model:ir.model,name:attribute_set_mass_edit.model_ir_actions_server
 msgid "Server Action"
-msgstr ""
+msgstr "Serveraktion"
 
 #. module: attribute_set_mass_edit
 #: model:ir.model,name:attribute_set_mass_edit.model_ir_actions_server_mass_edit_line
 msgid "Server Actions Mass Edit Lines"
-msgstr ""
+msgstr "Serveraktion, die Massenoperationen auf Zeilen erlaubt"
 
 #. module: attribute_set_mass_edit
 #: model:ir.model,name:attribute_set_mass_edit.model_mass_editing_wizard
 msgid "Wizard for mass edition"
-msgstr ""
+msgstr "Assistent zur Massenverarbeitung"
 
