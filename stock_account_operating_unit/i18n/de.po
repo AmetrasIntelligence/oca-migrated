@@ -14,10 +14,10 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/stock_account_operating_unit/i18n/stock_account_operating_unit.pot\n"
 "X-Crowdin-File-ID: 21426\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2024-09-25 12:08\n"
+"PO-Revision-Date: 2025-02-18 16:30\n"
 
 #. module: stock_account_operating_unit
 #: model:ir.model,name:stock_account_operating_unit.model_stock_move
 msgid "Stock Move"
-msgstr ""
+msgstr "Lagerbewegung"
 
