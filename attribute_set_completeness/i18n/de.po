@@ -14,27 +14,27 @@ msgstr ""
 "X-Crowdin-File: /[AmetrasIntelligence.oca-migrated] 16.0/attribute_set_completeness/i18n/attribute_set_completeness.pot\n"
 "X-Crowdin-File-ID: 21354\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2025-02-18 16:30\n"
+"PO-Revision-Date: 2025-02-19 14:52\n"
 
 #. module: attribute_set_completeness
 #: model:ir.model,name:attribute_set_completeness.model_attribute_set
 msgid "Attribute Set"
-msgstr ""
+msgstr "Attributsatz"
 
 #. module: attribute_set_completeness
 #: model:ir.model,name:attribute_set_completeness.model_attribute_set_completeness
 msgid "Attribute Set Completeness"
-msgstr ""
+msgstr "Attributsatz Vollständigkeit"
 
 #. module: attribute_set_completeness
 #: model:ir.model,name:attribute_set_completeness.model_attribute_set_owner_mixin
 msgid "Attribute set owner mixin"
-msgstr ""
+msgstr "Attribut Setze-Besitzer-Mixin"
 
 #. module: attribute_set_completeness
 #: model_terms:ir.ui.view,arch_db:attribute_set_completeness.attribute_set_form_view
 msgid "COMPLETNESS"
-msgstr "KOMPLETIERUNG"
+msgstr "VOLLSTÄNDIGKEIT"
 
 #. module: attribute_set_completeness
 #: model:ir.model.fields.selection,name:attribute_set_completeness.selection__attribute_set_owner_mixin__attribute_set_completion_state__complete
