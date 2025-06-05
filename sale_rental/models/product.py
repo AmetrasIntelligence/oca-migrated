@@ -49,36 +49,66 @@ class ProductProduct(models.Model):
                         ).format(product.name)
                     )
 
+    @api.constrains("rented_product_id")
+    def assign_variant_rented_product_tmpl_id(self):
+        if self.env.context.get("variant_rented_product", False):
+            return True
+        self.mapped("product_tmpl_id").with_context(
+            variant_rented_product_tmpl=True
+        ).assign_rented_product_tmpl_id()
+
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     rented_product_tmpl_id = fields.Many2one(
         "product.template",
-        compute="_compute_rented_product_tmpl_id",
         string="Rented Product",
-        inverse="_inverse_rented_product_tmpl_id",
-        store=True,
     )
     rental_service_tmpl_ids = fields.One2many(
         "product.template", "rented_product_tmpl_id", string="Rental Services"
     )
 
-    @api.depends("product_variant_ids", "product_variant_ids.rented_product_id")
-    def _compute_rented_product_tmpl_id(self):
+    @api.constrains("product_variant_ids")
+    def assign_rented_product_tmpl_id(self):
+        if self.env.context.get("variant_rented_product", False):
+            return True
         unique_variants = self.filtered(
             lambda template: len(template.product_variant_ids) == 1
         )
         for template in unique_variants:
-            template.rented_product_tmpl_id = (
-                template.product_variant_ids.rented_product_id.product_tmpl_id.id
-            )
-        for template in self - unique_variants:
-            template.rented_product_tmpl_id = False
+            rented_product_id = template.product_variant_ids.rented_product_id
+            if rented_product_id:
 
-    def _inverse_rented_product_tmpl_id(self):
+                template.with_context(
+                    rented_product_tmpl=True
+                ).rented_product_tmpl_id = rented_product_id.product_tmpl_id.id
+            else:
+                template.with_context(
+                    rented_product_tmpl=True
+                ).rented_product_tmpl_id = False
+
+        for template in self - unique_variants:
+            template.with_context(
+                rented_product_tmpl=True
+            ).rented_product_tmpl_id = False
+
+    @api.constrains("rented_product_tmpl_id")
+    def assign_variant_rented_product_id(self):
+        if self.env.context.get(
+            "variant_rented_product_tmpl", False
+        ) or self.env.context.get("rented_product_tmpl", False):
+            return True
         for template in self:
             if len(template.product_variant_ids) == 1:
-                template.product_variant_ids.rented_product_id = (
-                    template.rented_product_tmpl_id.product_variant_ids[0].id
+                rented_product_id = fields.first(
+                    template.rented_product_tmpl_id.product_variant_ids
                 )
+                if rented_product_id:
+                    template.product_variant_ids.with_context(
+                        variant_rented_product=True
+                    ).rented_product_id = rented_product_id.id
+                else:
+                    template.product_variant_ids.with_context(
+                        variant_rented_product=True
+                    ).rented_product_id = False
