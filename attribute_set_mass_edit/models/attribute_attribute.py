@@ -96,7 +96,7 @@ class AttributeAttribute(models.Model):
 
     @api.model_create_multi
     @api.returns("self", lambda value: value.id)
-    def create(self, vals):
-        attributes = super(AttributeAttribute, self).create(vals)
+    def create(self, vals_list):
+        attributes = super(AttributeAttribute, self).create(vals_list)
         attributes._manage_mass_editings()
         return attributes
