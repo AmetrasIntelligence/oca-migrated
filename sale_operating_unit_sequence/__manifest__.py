@@ -11,4 +11,5 @@
     "depends": ["sale_operating_unit"],
     "data": ["views/operating_unit_view.xml"],
     "installable": True,
+    "post_init_hook": "assign_ou_sequences",
 }
